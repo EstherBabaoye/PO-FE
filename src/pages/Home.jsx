@@ -116,9 +116,9 @@ export default function Home() {
             </div>
 
             {/* Vertical Name */}
-            <div className="absolute -right-24 top-52 h-full flex items-center">
-              <p className="text-white font-semibold text-5xl tracking-widest rotate-[-90deg] origin-left whitespace-nowrap">
-                PRAISE OLASENI
+            <div className="absolute -right-32 top-56 h-full flex items-center">
+              <p className="text-white font-semibold text-6xl tracking-widest rotate-[-90deg] origin-left whitespace-nowrap">
+               STORY TELLER
               </p>
             </div>
 
@@ -172,7 +172,6 @@ export default function Home() {
                 </span>
               </button>
 
-              <p className="font-signature italic text-2xl">Praise Olaseni</p>
             </div>
           </div>
         </div>
