@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import LoopingTextBanner from "../components/LoopingTextBanner";
 import hireMeBadge from "../assets/Hire-me-badge.png";
 import { FaLinkedinIn, FaPhoneAlt, FaEnvelope } from "react-icons/fa";
@@ -10,20 +10,82 @@ const slugify = (str) =>
     .replace(/[^\w\s]/g, "")
     .replace(/\s+/g, "-");
 
+export const services = [
+  {
+    title: "YouTube Scriptwriting",
+    label: "YT",
+    description:
+      "Engaging scripts that is guaranteed to get you the RESULTS you need.",
+    more: [
+      "💧 Engaging, well-researched content tailored to your channel’s unique voice.",
+      "💧 Quick turnaround—I deliver scripts within 24-48 hours after we reach an agreement.",
+      "💧 Seamless communication—I’m available 24/7.",
+      "💧 Error-free scripts, free of plagiarism or AI-generated content.",
+      "💧 A partner committed to your success—𝐈 𝐃𝐎𝐍'𝐓 𝐃𝐎 𝐀𝐕𝐄𝐑𝐀𝐆𝐄.",
+      "💧 Experience across 50+ niches.",
+    ],
+  },
+  {
+    title: "Ghost Writing",
+    label: "GW",
+    description:
+      "I'll write in your voice so well, it’ll feel like you did it yourself.",
+    more: [
+      "💧 Authentically written, voice-matched content that feels natural.",
+      "💧 100% original, research-backed, plagiarism-free writing.",
+      "💧 You own all credit — I stay invisible.",
+      "💧 Flexible delivery.",
+      "💧 Open communication and smooth revision flow.",
+      "💧 Trusted by professionals across several industries.",
+    ],
+  },
+  {
+    title: "Copy Writing",
+    label: "CW",
+    description:
+      "Conversation-first writing that sells without sounding salesy.",
+    more: [
+      "💧 Persuasive copy that speaks human — NO AI.",
+      "💧 Built to drive action, boost clicks, and convert faster.",
+      "💧 Aligned with your brand voice and customer journey.",
+      "💧 Tight turnarounds with feedback rounds.",
+      "💧 SEO-optimized where needed.",
+    ],
+  },
+  {
+    title: "Content Writing",
+    label: "CT",
+    description:
+      "I create content that ranks, educates, and entertains all at the same time.",
+    more: [
+      "💧Reader-first, Google-friendly content that ranks",
+      "💧 Deep research, zero fluff — always high value",
+      "💧 Edited for flow, readability, and tone consistency",
+      "💧 Reliable delivery for one-offs or ongoing content plans",
+      "💧 Experienced across niches like tech, wellness, productivity, finance, and more",
+    ],
+  },
+  {
+    title: "Academic Writing",
+    label: "AW",
+    description:
+      "Expertly written, plagiarism-free, and publication-ready academic research papers.",
+    more: [
+      " 💧 Thorough referencing using proper academic standards",
+      "💧 Delivered within QUICKLY WITHOUT A COMPROMISE ON QUALITY",
+      "💧 100% confidential — your work, your name",
+      "💧 Clear communication and revision-friendly process",
+    ],
+  },
+];
+
 const Services = () => {
   useEffect(() => {
     document.title = "Services | PO Portfolio";
     window.scrollTo(0, 0);
   }, []);
 
-  const services = [
-    { title: "YouTube Scriptwriting" },
-    { title: "Ghost Writing" },
-    { title: "Copy Writing" },
-    { title: "UI/UX Design" },
-    { title: "Design System" },
-    { title: "Wireframing" },
-  ];
+  const [expandedIndex, setExpandedIndex] = useState(null);
 
   return (
     <>
@@ -43,22 +105,49 @@ const Services = () => {
           {services.map((service, index) => (
             <div
               key={index}
-              className="bg-[#6b55d9] rounded-full w-72 h-96 flex flex-col items-center justify-center text-center p-6 shadow-md transition hover:scale-105 group hover:bg-[#f2f2fc] hover:text-black"
+              className={`bg-[#6b55d9] w-72 ${
+                expandedIndex === index
+                  ? "rounded-3xl min-h-[30rem]"
+                  : "rounded-full h-96"
+              } flex flex-col items-center justify-start text-center p-6 shadow-md transition-all duration-300 ease-in-out hover:scale-105 group hover:bg-[#f2f2fc] hover:text-black relative`}
             >
+              {/* Label Bubble */}
               <div className="bg-[#866ce6] rounded-full w-20 h-20 flex items-center justify-center mb-4">
                 <span className="text-2xl font-bold text-white transition group-hover:text-black">
-                  UX
+                  {service.label}
                 </span>
               </div>
+
+              {/* Title */}
               <h3 className="text-xl font-semibold mb-2 group-hover:text-black transition">
                 {service.title}
               </h3>
-              <p className="text-sm text-gray-200 group-hover:text-black mb-4 transition">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit
+
+              {/* Description */}
+              <p className="text-sm text-gray-200 group-hover:text-black mb-2 transition">
+                {service.description}
               </p>
-              <Link to={`/services/${slugify(service.title)}`}>
-                Learn more →
-              </Link>
+
+              {/* Toggle Button */}
+              <button
+                onClick={() =>
+                  setExpandedIndex(expandedIndex === index ? null : index)
+                }
+                className="text-sm text-white group-hover:text-black font-semibold transition hover:underline focus:outline-none mb-2"
+              >
+                {expandedIndex === index ? "Show less ↑" : "Learn more →"}
+              </button>
+
+              {/* Reveal Section */}
+              {expandedIndex === index && (
+                <div className="mt-4 text-sm text-white group-hover:text-black transition-all duration-300 ease-in-out space-y-1">
+                  <ul className="text-left list-none">
+                    {service.more.map((point, i) => (
+                      <li key={i}>{point}</li>
+                    ))}
+                  </ul>
+                </div>
+              )}
             </div>
           ))}
         </div>

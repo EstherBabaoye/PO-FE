@@ -20,8 +20,60 @@ const serviceData = {
     videoThumb: "/assets/video-thumb.png",
     extraImages: ["/assets/image1.png", "/assets/image2.png"],
   },
-  "uiux-design": {
-    title: "UI/UX Design",
+    "ghost-writing": {
+    title: "Ghost writing",
+    description: "We write high-retention YouTube scripts...",
+    includes: [
+      "Engaging hooks and intros",
+      "Viewer retention strategy",
+      "Optimized for voiceover pacing",
+      "SEO-friendly formatting",
+    ],
+    benefits: [
+      "Save time while growing your channel",
+      "Boost audience engagement",
+      "Increase watch time and monetization",
+    ],
+    videoThumb: "/assets/video-thumb.png",
+    extraImages: ["/assets/image1.png", "/assets/image2.png"],
+
+  },
+    "copy-scriptwriting": {
+    title: "Copy writing",
+    description: "We write high-retention YouTube scripts...",
+    includes: [
+      "Engaging hooks and intros",
+      "Viewer retention strategy",
+      "Optimized for voiceover pacing",
+      "SEO-friendly formatting",
+    ],
+    benefits: [
+      "Save time while growing your channel",
+      "Boost audience engagement",
+      "Increase watch time and monetization",
+    ],
+    videoThumb: "/assets/video-thumb.png",
+    extraImages: ["/assets/image1.png", "/assets/image2.png"],
+  },
+    "content-writing": {
+    title: "Content Writing",
+    description: "We write high-retention YouTube scripts...",
+    includes: [
+      "Engaging hooks and intros",
+      "Viewer retention strategy",
+      "Optimized for voiceover pacing",
+      "SEO-friendly formatting",
+    ],
+    benefits: [
+      "Save time while growing your channel",
+      "Boost audience engagement",
+      "Increase watch time and monetization",
+    ],
+    videoThumb: "/assets/video-thumb.png",
+    extraImages: ["/assets/image1.png", "/assets/image2.png"],
+  },
+  "academic-writing": {
+    title: "Academic Writing",
     description: "Beautiful, functional user interfaces and experiences...",
     includes: [
       "Wireframes & mockups",
