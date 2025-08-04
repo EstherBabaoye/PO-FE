@@ -43,7 +43,7 @@ export const services = [
     title: "Copy Writing",
     label: "CW",
     description:
-      "Conversation-first writing that sells without sounding salesy.",
+      "Conversion-first writing that sells without sounding salesy.",
     more: [
       "💧 Persuasive copy that speaks human — NO AI.",
       "💧 Built to drive action, boost clicks, and convert faster.",
